@@ -1,0 +1,148 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
+
+const skills = [
+  { name: 'SQL', detail: 'Joins · CTEs · Window Functions', level: 'Analytics' },
+  { name: 'Python', detail: 'Pandas · NumPy · EDA', level: 'Programming' },
+  { name: 'Power BI', detail: 'KPIs · Interactive Dashboards', level: 'Visualization' },
+  { name: 'Excel', detail: 'Pivot Tables · VLOOKUP · Formulas', level: 'Analysis' },
+  { name: 'MySQL', detail: 'Queries · Data Management', level: 'Database' },
+  { name: 'Data Storytelling', detail: 'Insights · Recommendations', level: 'Business' },
+];
+
+const projects = [
+  {
+    number: '01',
+    type: 'SQL · EXCEL',
+    title: 'Student Course Completion & Drop-off Analysis',
+    desc: 'Explored the Open University Learning Analytics Dataset to follow students from enrollment through assessment to completion.',
+    bullets: [
+      'Joined studentInfo, studentRegistration and studentAssessment tables.',
+      'Used GROUP BY, RANK and running totals to investigate withdrawal patterns.',
+      'Segmented findings by course length and prior education level with Excel Pivot Tables.',
+    ],
+    tags: ['SQL Joins', 'Window Functions', 'Excel Pivot Tables', 'OULAD'],
+  },
+  {
+    number: '02',
+    type: 'SQL · POWER BI',
+    title: 'Retail Return Rate Analysis by Region',
+    desc: 'Analyzed Sample Superstore orders and returns to compare return rates across regions, cities and product categories.',
+    bullets: [
+      'Used LEFT JOIN and NULL handling to distinguish returned from non-returned orders.',
+      'Built a one-page Power BI dashboard with a return-rate KPI, region filter and category breakdown.',
+      'Considered product mix and shipping mode before interpreting possible causes.',
+    ],
+    tags: ['SQL', 'Power BI', 'KPI Dashboard', 'Retail Analytics'],
+  },
+];
+
+function App() {
+  return (
+    <div className="site-shell">
+      <header className="nav wrap">
+        <a className="brand" href="#home" aria-label="Akash Pandey home"><span className="brand-mark">A</span><span>AKASH<span className="brand-dot">.</span></span></a>
+        <nav>
+          <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a>
+        </nav>
+        <a className="nav-cta" href="#contact">Let’s talk <span>↗</span></a>
+      </header>
+
+      <main>
+        <section className="hero wrap" id="home">
+          <div className="hero-copy">
+            <div className="availability"><span className="pulse"></span> OPEN TO DATA ANALYTICS OPPORTUNITIES</div>
+            <p className="eyebrow">DATA ANALYST · SQL · PYTHON · POWER BI</p>
+            <h1>Turning data<br/>into <span className="gradient-text">decisions.</span></h1>
+            <p className="hero-desc">I turn raw data into meaningful insights, clear visualizations, and practical recommendations that help people make better decisions.</p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#projects">Explore my work <span>↗</span></a>
+              <a className="btn btn-ghost" href="/Akash-Pandey-Resume.pdf" target="_blank" rel="noreferrer">View résumé <span>↓</span></a>
+            </div>
+            <div className="hero-socials">
+              <a href="https://github.com/akash7611" target="_blank" rel="noreferrer">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/akash-pandey-101193339/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+              <a href="mailto:akashpandey7001@gmail.com">Email ↗</a>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <div className="visual-glow"></div>
+            <div className="orbit orbit-one"></div><div className="orbit orbit-two"></div>
+            <div className="profile-frame">
+              <img src="/akash-profile.jpeg" alt="Akash Kumar Pandey at a technology event" />
+              <div className="photo-label"><span className="photo-dot"></span><span><b>Akash Kumar Pandey</b><small>Data Analyst</small></span></div>
+            </div>
+            <div className="float-card card-sql"><span className="mini-icon">⌘</span><span><b>SQL</b><small>Query & discover</small></span></div>
+            <div className="float-card card-power"><span className="mini-bars">▂▅▇</span><span><b>Power BI</b><small>Visualize insights</small></span></div>
+            <div className="hero-index">PORTFOLIO <span>2026</span></div>
+          </div>
+          <div className="hero-bottom"><span>SCROLL TO EXPLORE</span><span className="scroll-line"></span><span>01 / 04</span></div>
+        </section>
+
+        <div className="ticker" aria-label="Data analytics skills"><div className="ticker-track">{Array.from({length:2}).map((_,i)=><span key={i}>SQL ✦ PYTHON ✦ POWER BI ✦ EXCEL ✦ DATA STORYTELLING ✦ BUSINESS INSIGHTS ✦ SQL ✦ PYTHON ✦ POWER BI ✦ EXCEL ✦</span>)}</div></div>
+
+        <section className="intro-section section wrap" id="about">
+          <div className="section-kicker"><span>01</span> / ABOUT ME</div>
+          <div className="intro-grid">
+            <h2>Curious by nature.<br/><span className="muted-heading">Analytical by design.</span></h2>
+            <div className="intro-copy">
+              <p>I’m Akash Kumar Pandey, a Data Analyst focused on finding the story behind the numbers. I enjoy cleaning and exploring datasets, asking better questions, and translating analysis into useful business insights.</p>
+              <p>My toolkit includes SQL, Python, Excel and Power BI. I approach each project with attention to data quality, clear reasoning, and visual communication.</p>
+              <a className="text-link" href="mailto:akashpandey7001@gmail.com">Let’s connect <span>↗</span></a>
+            </div>
+          </div>
+          <div className="principles">
+            <div><span className="principle-num">01</span><b>Data quality first</b><p>Clean, consistent data is the foundation of reliable analysis.</p></div>
+            <div><span className="principle-num">02</span><b>Insights over noise</b><p>Focus on metrics that answer a real question.</p></div>
+            <div><span className="principle-num">03</span><b>Clarity matters</b><p>Make findings easy for others to understand and use.</p></div>
+          </div>
+        </section>
+
+        <section className="skills-section section" id="skills">
+          <div className="wrap">
+            <div className="section-kicker"><span>02</span> / TOOLKIT</div>
+            <div className="section-heading"><h2>Tools I use to<br/><span className="muted-heading">find the signal.</span></h2><p>A practical toolkit for exploring datasets, measuring performance and communicating findings.</p></div>
+            <div className="skills-grid">{skills.map((skill, i) => <article className="skill-card" key={skill.name}><div className="skill-top"><span className="skill-index">0{i + 1}</span><span className="skill-arrow">↗</span></div><h3>{skill.name}</h3><p>{skill.detail}</p><span className="skill-type">{skill.level}</span></article>)}</div>
+          </div>
+        </section>
+
+        <section className="projects-section section wrap" id="projects">
+          <div className="section-kicker"><span>03</span> / SELECTED WORK</div>
+          <div className="section-heading project-heading"><h2>Analysis with<br/><span className="muted-heading">a purpose.</span></h2><p>Case studies that show how I structure questions, work with data and communicate results.</p></div>
+          <div className="projects-list">{projects.map(project => <article className="project-card" key={project.number}>
+            <div className="project-meta"><span>{project.number}</span><span>{project.type}</span></div>
+            <div className="project-content"><h3>{project.title}</h3><p className="project-desc">{project.desc}</p><ul>{project.bullets.map(b => <li key={b}>{b}</li>)}</ul><div className="tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div>
+            <div className="project-end"><span>CASE STUDY</span><span className="project-symbol">↘</span></div>
+          </article>)}</div>
+          <p className="project-note">Project summaries reflect the work described in my résumé. Ask me about the analysis, assumptions and findings.</p>
+        </section>
+
+        <section className="experience-section section" id="experience">
+          <div className="wrap">
+            <div className="section-kicker"><span>04</span> / EXPERIENCE</div>
+            <div className="experience-card">
+              <div className="experience-date">JUL 2026 — AUG 2026</div>
+              <div className="experience-main"><span className="experience-label">INTERNSHIP</span><h2>Data Analytics Intern</h2><h3>Codec Technologies Pvt. Ltd.</h3><p>Worked with real-world datasets to support data cleaning, transformation, exploratory analysis and reporting. Used SQL and Excel to investigate business questions, created summary views and visualizations, and collaborated with mentors to refine analytical approaches and conclusions.</p><div className="tags"><span>Data Cleaning</span><span>EDA</span><span>SQL</span><span>Excel</span><span>Visualization</span></div></div>
+              <div className="experience-mark">CT<span>.</span></div>
+            </div>
+            <div className="education-line"><span>EDUCATION</span><div><b>B.Tech — Computer Science & Engineering (AI & ML)</b><p>College: Accurate Group of Institutions, Noida</p><p>University: Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow</p></div><span>EXPECTED 2029</span></div>
+            <div className="cert-line"><span>CERTIFICATION & COMMUNITY</span><p>Data Analytics Internship Certificate — Codec Technologies · Member, E-Cell IIT Bombay</p></div>
+          </div>
+        </section>
+
+        <section className="contact-section section wrap" id="contact">
+          <div className="contact-orb"></div>
+          <div className="section-kicker"><span>05</span> / GET IN TOUCH</div>
+          <h2>Let’s turn your<br/><span className="gradient-text">data into direction.</span></h2>
+          <p>Have an analytics opportunity, a project idea, or a problem worth exploring? I’d be glad to connect.</p>
+          <a className="btn btn-primary contact-btn" href="mailto:akashpandey7001@gmail.com">Get in touch <span>↗</span></a>
+          <div className="contact-links"><a href="mailto:akashpandey7001@gmail.com">akashpandey7001@gmail.com</a><a href="https://www.linkedin.com/in/akash-pandey-101193339/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/akash7611" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+        </section>
+      </main>
+      <footer className="footer wrap"><a className="brand" href="#home"><span className="brand-mark">A</span><span>AKASH<span className="brand-dot">.</span></span></a><span>Designed with purpose · © {new Date().getFullYear()} Akash Kumar Pandey</span><a href="#home">BACK TO TOP ↑</a></footer>
+    </div>
+  );
+}
+
+createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);

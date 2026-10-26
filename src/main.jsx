@@ -1,0 +1,76 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+
+const info = {
+  name: "Akash Kumar Pandey",
+  email: "akashpandey7001@gmail.com",
+  github: "https://github.com/akash7611",
+  linkedin: "https://www.linkedin.com/in/akash-pandey-101193339/",
+  instagram: "https://www.instagram.com/def_net_74/",
+};
+
+function Icon({ type, size = 21 }) {
+  const p = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true };
+  if (type === "mail") return <svg {...p}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>;
+  if (type === "linkedin") return <svg {...p} fill="currentColor" stroke="none"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2ZM8 18H5V9h3v9ZM6.5 7.8a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5ZM19 18h-3v-4.4c0-1.05-.02-2.4-1.47-2.4-1.47 0-1.7 1.15-1.7 2.32V18h-3V9h2.88v1.23h.04c.4-.71 1.38-1.46 2.84-1.46 3.04 0 3.61 2 3.61 4.6V18Z"/></svg>;
+  if (type === "github") return <svg {...p} fill="currentColor" stroke="none"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.67-3.75-1.32-3.75-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.27-2.6 5.22-5.08 5.5.4.35.75 1.02.75 2.06V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/></svg>;
+  if (type === "instagram") return <svg {...p}><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>;
+  if (type === "user") return <svg {...p}><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg>;
+  if (type === "pin") return <svg {...p}><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>;
+  if (type === "school") return <svg {...p}><path d="m3 9 9-5 9 5-9 5-9-5Z"/><path d="M6 11v5c4 3 8 3 12 0v-5M21 9v6"/></svg>;
+  return <svg {...p}><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>;
+}
+
+function Social({ href, type, label }) {
+  return <a className="social-link" href={href} target={type === "mail" ? undefined : "_blank"} rel="noreferrer" aria-label={label} title={label}><Icon type={type}/><span>{label}</span><b>↗</b></a>;
+}
+
+function App() {
+  return <div className="portfolio">
+    <style>{`
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+      *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Space Grotesk',sans-serif;color:#211f25;background:#f7f5f8}
+      .portfolio{min-height:100vh;overflow:hidden;background-image:linear-gradient(#27aef01a 1px,transparent 1px),linear-gradient(90deg,#27aef01a 1px,transparent 1px);background-size:44px 44px}
+      .nav{position:sticky;top:0;z-index:5;display:flex;justify-content:center;gap:clamp(12px,3vw,36px);padding:22px 12px;background:#fbf9fcf2;border-bottom:3px solid #211f25}.nav a{font:600 13px 'DM Mono',monospace;text-decoration:none;color:inherit}.nav a:hover{color:#079fe8}
+      .wrap{width:min(1120px,92%);margin:auto}.hero{min-height:660px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:38px;padding:60px 0}
+      .eyebrow{font:500 13px 'DM Mono',monospace;letter-spacing:2px;color:#078fcf;text-transform:uppercase}h1{font-size:clamp(42px,6vw,70px);line-height:1.04;letter-spacing:-3px;margin:18px 0}.blue{color:#079fe8}.intro{font-size:17px;line-height:1.8;color:#706b79}
+      .buttons,.socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn,.social-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 15px;border:2px solid #211f25;box-shadow:4px 4px 0 #211f25;text-decoration:none;font-weight:700;color:inherit;background:#fff}.btn.primary{background:#079fe8;color:white}.btn:hover,.social-link:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #211f25}.social-link{font:500 12px 'DM Mono',monospace;padding:10px 11px}
+      .portrait-wrap{position:relative;padding:12px 12px 18px}.portrait{height:410px;border:3px solid #211f25;box-shadow:7px 7px 0 #211f25;background:linear-gradient(145deg,#e7f6fb,#f5f0e9);display:grid;place-items:center;text-align:center;padding:24px}.avatar{height:115px;width:115px;border-radius:50%;display:grid;place-items:center;margin:auto auto 18px;background:#10afea;color:white;border:3px solid #211f25;box-shadow:5px 5px 0 #211f25}.portrait h2{font-size:25px;margin:0}.portrait p{color:#706b79;line-height:1.6}.hello{position:absolute;right:0;bottom:0;background:#0bb8e9;color:white;border:3px solid #211f25;box-shadow:4px 4px 0 #211f25;padding:12px 15px;font:500 13px 'DM Mono',monospace;transform:rotate(3deg)}
+      .terminal,.panel,.project{background:#fbf9fc;border:3px solid #211f25;box-shadow:6px 6px 0 #211f25}.terminal{margin-top:24px}.terminal-head{display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:3px solid #211f25;font:13px 'DM Mono',monospace}.dot{width:12px;height:12px;background:#ff4264}.dot:nth-child(2){background:#ff8b20}.dot:nth-child(3){background:#10b7ef}.term-label{margin-left:10px;background:#211f25;color:white;padding:7px 12px}.terminal-body{padding:18px;font:14px/2 'DM Mono',monospace}.prompt{border-left:5px solid #10afea;padding-left:12px}
+      section.content{padding:65px 0;scroll-margin-top:70px}.title{display:inline-flex;align-items:center;gap:12px;background:#f10c8b;color:white;border:3px solid #211f25;box-shadow:5px 5px 0 #211f25;padding:12px 18px;font-size:clamp(25px,4vw,35px);margin:0}.sub{font-size:16px;line-height:1.8;color:#706b79;margin:20px 0 32px}.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:26px}.panel{padding:26px}.panel h3{display:flex;align-items:center;gap:12px;font-size:22px;margin:0 0 20px}.icon-blue{color:#10aaf0}.journey{font-size:16px;line-height:1.8;color:#706b79}.stat{margin-top:24px;background:#10afea;color:white;border:3px solid #211f25;box-shadow:5px 5px 0 #211f25;padding:20px}.stat strong{display:block;font-size:42px}.stat span{font:12px 'DM Mono',monospace}
+      .info{display:flex;gap:15px;align-items:center;background:#fff;border:2px solid #211f25;box-shadow:3px 3px 0 #211f25;padding:16px;margin:13px 0}.info label{font:600 13px 'DM Mono',monospace}.info p{margin:5px 0 0;color:#706b79;overflow-wrap:anywhere}.info a{color:inherit;text-decoration:none}.rule{height:4px;background:linear-gradient(90deg,#10afea,#b827ff);margin:24px 0}.tags{display:flex;flex-wrap:wrap;gap:9px}.tag{background:#211f25;color:white;padding:9px 11px;font:12px 'DM Mono',monospace}
+      .skills,.projects{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.skill{padding:18px;background:#fff;border:2px solid #211f25;box-shadow:4px 4px 0 #211f25;font:13px 'DM Mono',monospace}.projects{grid-template-columns:repeat(2,1fr)}.project{padding:24px}.project small{color:#079fe8;font:13px 'DM Mono',monospace}.project h3{font-size:22px}.project p{color:#706b79;line-height:1.7}.project a{font-weight:700}.contact{display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}.contact h2{font-size:30px;margin:0}.footer{text-align:center;padding:25px;border-top:3px solid #211f25;background:#fbf9fc;font:12px 'DM Mono',monospace;color:#706b79}
+      @media(max-width:760px){.nav{justify-content:flex-start;overflow-x:auto;gap:20px;padding:18px}.nav a{white-space:nowrap}.hero{grid-template-columns:1fr;padding:40px 0;gap:28px}.portrait{height:340px}h1{letter-spacing:-2px}.about-grid,.projects{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}section.content{padding:45px 0}.panel{padding:19px}.intro{font-size:15px}}
+    `}</style>
+    <nav className="nav"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#focus">Education</a><a href="#contact">Contact</a></nav>
+    <main className="wrap">
+      <section className="hero">
+        <div><div className="eyebrow">Portfolio / 2026</div><h1>Hi, I'm <span className="blue">Akash</span>.<br/>Aspiring Data Analyst.</h1><p className="intro">I enjoy turning data into useful insights and building practical technology projects. I'm learning Python, SQL and Power BI while exploring AI-powered solutions.</p>
+          <div className="buttons"><a className="btn primary" href="#projects">Explore Projects ↗</a><a className="btn" href={`mailto:${info.email}`}>Contact Me ↗</a></div>
+          <div className="socials"><Social href={info.github} type="github" label="GitHub"/><Social href={info.linkedin} type="linkedin" label="LinkedIn"/><Social href={info.instagram} type="instagram" label="Instagram"/><Social href={`mailto:${info.email}`} type="mail" label="Gmail"/></div>
+        </div>
+        <div><div className="portrait-wrap"><div className="portrait"><div><img src="/akash.jpg" alt="Akash Kumar Pandey" style={{width:150,height:150,objectFit:"cover",borderRadius:"50%",border:"3px solid #211f25",boxShadow:"5px 5px 0 #211f25",display:"block",margin:"0 auto 18px"}} /><h2>Akash Kumar Pandey</h2><p>Data Analytics · AI Projects · Problem Solving</p><p>Add your own photo here when ready.</p></div></div><div className="hello">👋 HI, I'M AKASH</div></div>
+          <div className="terminal"><div className="terminal-head"><i className="dot"/><i className="dot"/><i className="dot"/><span className="term-label">akash --info</span></div><div className="terminal-body"><div className="prompt">$ whoami</div><div>🎓 B.Tech Student</div><div>📊 Aspiring Data Analyst</div><div>🧠 Python · SQL · Power BI</div><div>🛠️ AI & web project builder</div><div>🌱 Learning by building</div></div></div>
+        </div>
+      </section>
+      <section className="content" id="about"><h2 className="title"><Icon type="user"/> About Me</h2><p className="sub">My background, current focus, and what drives my work.</p><div className="about-grid">
+        <div className="panel"><h3><span className="icon-blue"><Icon type="user"/></span> My Journey</h3><p className="journey">I'm a B.Tech student building practical skills in data analytics and software projects. I like learning by creating things that solve real problems, then improving them with feedback.</p><div className="stat"><strong>Always</strong><span>LEARNING · BUILDING · IMPROVING</span></div></div>
+        <div className="panel"><h3><span className="icon-blue"><Icon type="mail"/></span> Personal Info</h3>
+          <div className="info"><span className="icon-blue"><Icon type="user"/></span><div><label>Name</label><p>{info.name}</p></div></div>
+          <div className="info"><span className="icon-blue"><Icon type="mail"/></span><div><label>Email</label><p><a href={`mailto:${info.email}`}>{info.email}</a></p></div></div>
+          <div className="info"><span className="icon-blue"><Icon type="pin"/></span><div><label>Location</label><p>India</p></div></div>
+          <div className="info"><span className="icon-blue"><Icon type="school"/></span><div><label>Education</label><p>B.Tech, 2nd Year · Accurate College</p></div></div>
+          <div className="rule"/><h3><span className="icon-blue"><Icon type="target"/></span> Current Focus</h3><div className="tags"><span className="tag">▪ Python</span><span className="tag">▪ SQL</span><span className="tag">▪ Power BI</span><span className="tag">▪ Data Analytics</span><span className="tag">▪ AI Projects</span></div>
+        </div></div></section>
+      <section className="content" id="skills"><h2 className="title">Skills</h2><p className="sub">Tools and concepts I'm learning and using.</p><div className="skills">{["Python","SQL","Power BI","Data Analysis","Excel","React","HTML & CSS","Git & GitHub"].map(x=><div className="skill" key={x}>▦ &nbsp;{x}</div>)}</div></section>
+      <section className="content" id="projects"><h2 className="title">Featured Projects</h2><p className="sub">Projects inspired by real-world problems.</p><div className="projects">
+        <article className="project"><small>PROJECT / 01</small><h3>Live AI Classroom Co-Teacher</h3><p>An AI classroom assistant concept to help students ask questions and receive clear, spoken explanations while learning.</p><div className="tags"><span className="tag">AI</span><span className="tag">Python</span><span className="tag">React</span></div><p><a href={info.github} target="_blank" rel="noreferrer">GitHub Profile ↗</a></p></article>
+        <article className="project"><small>PROJECT / 02</small><h3>BharatSeva AI</h3><p>A welfare-scheme discovery concept that helps people explore schemes and understand eligibility and document requirements.</p><div className="tags"><span className="tag">AI</span><span className="tag">React</span><span className="tag">FastAPI</span></div><p><a href={info.github} target="_blank" rel="noreferrer">GitHub Profile ↗</a></p></article>
+      </div></section>
+      <section className="content" id="focus"><h2 className="title">Education & Focus</h2><p className="sub">Strengthening fundamentals and learning by doing.</p><div className="projects"><div className="project"><h3>📊 Data Analytics</h3><p>Practising SQL, Python data handling, dashboards, and explaining insights clearly.</p></div><div className="project"><h3>🚀 Project Building</h3><p>Creating practical web and AI projects, learning deployment, and improving with feedback.</p></div></div></section>
+      <section className="content" id="contact"><div className="panel contact"><div><h2>Let's connect.</h2><p className="sub">Open to learning opportunities, collaboration and interesting projects.</p><div className="socials"><Social href={info.github} type="github" label="GitHub"/><Social href={info.linkedin} type="linkedin" label="LinkedIn"/><Social href={info.instagram} type="instagram" label="Instagram"/><Social href={`mailto:${info.email}`} type="mail" label="Gmail"/></div></div><a className="btn primary" href={`mailto:${info.email}`}>Send an Email ↗</a></div></section>
+    </main><footer className="footer">Designed & built with curiosity · © {new Date().getFullYear()} {info.name}</footer>
+  </div>;
+}
+
+createRoot(document.getElementById("root")).render(<App />);
