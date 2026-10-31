@@ -46,7 +46,7 @@ function App() {
     <main className="wrap">
       <section className="hero">
         <div><div className="eyebrow">Portfolio / 2026</div><h1>Hi, I'm <span className="blue">Akash</span>.<br/>Aspiring Data Analyst.</h1><p className="intro">I enjoy turning data into useful insights and building practical technology projects. I'm learning Python, SQL and Power BI while exploring AI-powered solutions.</p>
-          <div className="buttons"><a className="btn primary" href="#projects">Explore Projects ↗</a><a className="btn" href={`mailto:${info.email}`}>Contact Me ↗</a></div>
+          <div className="buttons"><a className="btn primary" href="#projects">Explore Projects ↗</a><a className="btn" href={`mailto:${info.email}`}>Contact Me ↗</a><a className="btn" href="/Akash-Pandey-Resume.pdf" download>Download Resume ↓</a></div>
           <div className="socials"><Social href={info.github} type="github" label="GitHub"/><Social href={info.linkedin} type="linkedin" label="LinkedIn"/><Social href={info.instagram} type="instagram" label="Instagram"/><Social href={`mailto:${info.email}`} type="mail" label="Gmail"/></div>
         </div>
         <div><div className="portrait-wrap"><div className="portrait"><div><img src="/akash.jpg" alt="Akash Kumar Pandey" style={{width:150,height:150,objectFit:"cover",borderRadius:"50%",border:"3px solid #211f25",boxShadow:"5px 5px 0 #211f25",display:"block",margin:"0 auto 18px"}} /><h2>Akash Kumar Pandey</h2><p>Data Analytics · AI Projects · Problem Solving</p><p>Add your own photo here when ready.</p></div></div><div className="hello">👋 HI, I'M AKASH</div></div>
